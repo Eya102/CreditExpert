@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import gsap from 'gsap';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-business',
@@ -9,8 +10,41 @@ import gsap from 'gsap';
 export class BusinessComponent {
   starShine: any;
   tl: any;
+  addE: FormGroup | any;
+  submitted = false;
+  constructor(
 
-  ngAfterViewInit() {
+    private fb: FormBuilder,
+
+  ) {}
+
+  E_name:string ='';
+  E_EBE:any=0;
+  E_ET:any=0;
+  E_CP:any=0;
+  E_TA:any=0;
+  E_RD:any=0;
+  E_FF:any=0;
+  E_CA:any=0;;
+  E_FP:any=0;
+  E_VA:any=0;
+
+  onSubmit() {
+    var val={
+      EBE: this.E_EBE,
+      ET:  this.E_ET,
+      CP:  this.E_CP,
+      TA:  this.E_TA,
+      RD: this. E_RD,
+      FF: this.E_FF,
+      CA:  this.E_CA,
+      FP : this.E_FP,
+      VA : this.E_VA
+    }
+                    
+  }
+
+  ngOnInit() {
     this.tl = gsap.timeline()
     .set('svg', {opacity:1})
     .set('.scratches', {rotation:70, x:450, y:-10})
@@ -45,6 +79,6 @@ export class BusinessComponent {
     .to('#star', {scale:1, repeat:1, yoyo:true, yoyoEase:true, duration:0.4, ease:'power4'}, 0)
     .fromTo('#star', {rotate:-20},{rotate:120, duration:0.8, ease:'none'}, 0)
   
-  window.onclick =()=> this.tl.play(0);
+
   }
 }
