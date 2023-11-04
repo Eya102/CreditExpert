@@ -14,61 +14,61 @@
   <div class="Container">
     <div class="row">
         <div class="col-md-6">
-       
-   
+
     
-    <form [formGroup]="addE" (ngSubmit)="onSubmit()">
+    <form [formGroup]="add_e" (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label for="name">Your Full name :</label>
-        <input type="number" id="name"[(ngModel)]="E_name" name="name"  placeholder="full name" />
+        <label for="name">Full name :</label>
+        <input type="text" id="name"[(ngModel)]="E_name" name="name" placeholder="Enter your full name" />
       </div>
-     
+
       <div class="form-group">
-        <label for="age">Your age :</label>
-        <input type="number" id="age" [(ngModel)]="E_EBE"name="age" placeholder=" votre âge " />
+        <label for="EBE">Gross Operating Surplus:</label>
+        <input type="number" id="EBE" [(ngModel)]="E_EBE"name="EBE" placeholder="Enter your gross operating surplus " />
       </div>
       <div class="form-group">
-        <label for="TypeContrat">The type of contract :</label>
-        <input type="number" [(ngModel)]="E_ET" id="SalaireNet" name="SalaireNet" placeholder=" net salary" />
+        <label for="ET">Total Debt :</label>
+        <input type="number" [(ngModel)]="E_ET" id="ET" name="ET" placeholder="Enter your total debt" />
       </div>
   
       <div class="form-group">
-        <label for="SalaireNet">Your net salary :</label>
-        <input type="number" [(ngModel)]="E_CP" id="SalaireNet" name="SalaireNet" placeholder=" net salary" />
+        <label for="CP">Permanent Capitals :</label>
+        <input type="number" [(ngModel)]="E_CP" id="CP" name="CP" placeholder=" Enter your permanent capitals" />
       </div>
+
       <div class="form-group">
-        <label for="ResteAVivre">Your Disposable Income : </label>
-        <input type="number" id="ResteAVivre" [(ngModel)]="E_TA" name="ResteAVivre" placeholder="Disposable Income " />
+        <label for="TA">Total Assets : </label>
+        <input type="number" id="TA" [(ngModel)]="E_TA" name="TA" placeholder="Enter your total assets" />
       </div>
+
       <div class="form-group">
-        <label for="TotalMensualites">Your Total Monthly Payments :</label>
-        <input type="number" id="TotalMensualites" [(ngModel)]="E_RD" name="TotalMensualités" placeholder="Total Monthly Payments" />
+        <label for="RD">Realizable and Available :</label>
+        <input type="number" id="RD" [(ngModel)]="E_RD" name="RD" placeholder="Enter your realizable and available" />
       </div>
   
       <div class="form-group">
-        <label for="PrêtDemandé">Requested Loan Amount :</label>
-        <input type="number" id="PretDemande" [(ngModel)]="E_FF" name="PrêtDemandé" placeholder="Loan Amount" />
+        <label for="FF">Financial Expenses :</label>
+        <input type="number" id="FF" [(ngModel)]="E_FF" name="FF" placeholder="Enter your financial expenses" />
       </div>
 
       <div class="form-group">
-        <label for="PrêtDemandé">Requested Loan Amount :</label>
-        <input type="number" id="PretDemande" [(ngModel)]="E_CA" name="PrêtDemandé" placeholder="Loan Amount" />
+        <label for="CA">Turnover :</label>
+        <input type="number" id="CA" [(ngModel)]="E_CA" name="CA" placeholder="Enter your turnover " />
       </div>
 
       <div class="form-group">
-        <label for="PrêtDemandé">Requested Loan Amount :</label>
-        <input type="number" id="PretDemande" [(ngModel)]="E_FP" name="PrêtDemandé" placeholder="Loan Amount" />
+        <label for="FP">Personnel Costs :</label>
+        <input type="number" id="FP" [(ngModel)]="E_FP" name="FP" placeholder="Enter your personnel costs" />
       </div>
 
       <div class="form-group">
-        <label for="PrêtDemandé">Requested Loan Amount :</label>
-        <input type="number" id="PretDemande" [(ngModel)]="E_VA" name="PrêtDemandé" placeholder="Loan Amount" />
+        <label for="VA">Added Value :</label>
+        <input type="number" id="VA" [(ngModel)]="E_VA" name="VA" placeholder="Enter your added value" />
       </div>
   
       <div class="form-group">
         
       </div>
- 
 
       <button type="submit">Submit</button>
   
@@ -141,7 +141,7 @@
       <g fill="#fff" stroke-linecap="round">
         <g clip-path="url(#txtBoxes)">
           <text x="45" y="60" font-size="26">Debit</text>
-          <text x="45" y="320" font-size="21">Gail Bell</text>
+          <text x="45" y="320" font-size="21">{{E_name}}</text>
           <text x="470" y="320" font-size="26">02/30</text>
         </g>
         <path fill="none" stroke="#fff" stroke-width="2.4" d="M42.5,146.5c2,2,2,6.3,0,8.2 M57,163.7c5.1-5.9,5.1-19.8,0-26.3 M52.1,160.7c4.4-4.5,4.9-15.2,0-20.2

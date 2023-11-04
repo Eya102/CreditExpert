@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class BusinessComponent {
   starShine: any;
   tl: any;
-  addE: FormGroup | any;
+  add_e: FormGroup | any;
   submitted = false;
   constructor(
 
@@ -41,7 +41,6 @@ export class BusinessComponent {
       FP : this.E_FP,
       VA : this.E_VA
     }
-                    
   }
 
   ngOnInit() {
