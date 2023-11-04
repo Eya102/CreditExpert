@@ -17,16 +17,16 @@
 
     
     <form (ngSubmit)="onSubmit()">
-      <div class="form-group">
+      <div class="form-group" >
         <label for="name">Company Name :</label>
-      <input type="text" [(ngModel)]="E_name"  name="name" placeholder="Enter your company name" />
+      <input required  type="text" [(ngModel)]="E_name"  name="name" placeholder="Enter your company name" />
 
 
       </div>
 
       <div class="form-group">
         <label for="EBE">Gross Operating Surplus:</label>
-        <input type="number" id="EBE" [(ngModel)]="E_EBE"name="EBE" placeholder="Enter your gross operating surplus " />
+        <input type="number" id="EBE" [(ngModel)]="E_EBE"name="EBE" value=" " placeholder="Enter your gross operating surplus " />
       </div>
       <div class="form-group">
         <label for="ET">Total Debt :</label>
@@ -142,8 +142,8 @@
       
       <g fill="#fff" stroke-linecap="round">
         <g clip-path="url(#txtBoxes)">
-          <text x="45" y="60" font-size="26">Debit</text>
-          <text x="45" y="320" font-size="21">{{ E_name }}</text>
+          <text x="45" y="60" font-size="30">Loan</text>
+          <text x="45" y="320" font-size="35">{{ E_name }}</text>
           <text x="470" y="320" font-size="26">02/30</text>
         </g>
         <path fill="none" stroke="#fff" stroke-width="2.4" d="M42.5,146.5c2,2,2,6.3,0,8.2 M57,163.7c5.1-5.9,5.1-19.8,0-26.3 M52.1,160.7c4.4-4.5,4.9-15.2,0-20.2

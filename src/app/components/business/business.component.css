@@ -8,10 +8,10 @@ html, body {
     }
 
     .align {
-        width: 100%;
-        height: 100%;
-        background: #201a22;
-    }
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to right,#221f22,#15041e);
+  }
 
     svg {
     opacity:0;
