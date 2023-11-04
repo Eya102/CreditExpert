@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import gsap from 'gsap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -15,7 +16,7 @@ export class BusinessComponent {
   constructor(
 
     private fb: FormBuilder,
-
+    private http: HttpClient,
   ) {}
 
   E_name:string ='';
@@ -41,6 +42,18 @@ export class BusinessComponent {
       FP : this.E_FP,
       VA : this.E_VA
     }
+
+    
+    const apiUrl = 'https://your-api-domain.com/your-api-endpoint';
+
+    this.http.post(apiUrl, val).subscribe(
+      (response) => {
+        console.log('API Response:', response);
+      },
+      (error) => {
+        console.error('Error:', error);
+      }
+    );
   }
 
   ngOnInit() {
