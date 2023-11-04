@@ -16,14 +16,13 @@ import { BusinessComponent } from './components/business/business.component';
     NavbarComponent,
     ServiceLandingPageComponent,
     PersonnelLoanComponent,
-    BusinessComponent,
-    
+    BusinessComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

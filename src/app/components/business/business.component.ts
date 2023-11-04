@@ -72,7 +72,7 @@ export class BusinessComponent {
         end: 1
       }, duration:5, repeat:-1, ease:'none', repeatDelay:1}, 1.5)
     .from('.coil', {attr:{'stroke-dashoffset':(i)=>(i==1)?-28:28}, ease:'none', duration:1, repeat:-1}, 1)
-    .fromTo('#orb1', {y:160}, {y:-20, ease:'circ', repeat:-1, yoyo:true, duration:1}, 0.8)
+    .fromTo('#orb1', {y:160}, {y:-20, ease:'circ', repeat:-1, yoyo:true, duration:1}, 0.😎
     .from('.logoPt', {x:(i)=>[18,-10][i], duration:1.2, ease:'expo.inOut'}, 0.9)
     .from('svg text', {x:-40, duration:1.1, ease:'expo.inOut', stagger:0.2}, 1)
     .from('.txtBox', {scaleX:0, transformOrigin:'100% 0', duration:1.1, ease:'expo.inOut', stagger:0.2}, 1)
