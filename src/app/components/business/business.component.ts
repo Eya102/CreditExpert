@@ -28,7 +28,7 @@ export class BusinessComponent {
   E_TA:any=0;
   E_RD:any=0;
   E_FF:any=0;
-  E_CA:any=0;;
+  E_CA:any=0;
   E_FP:any=0;
   E_VA:any=0;
 
