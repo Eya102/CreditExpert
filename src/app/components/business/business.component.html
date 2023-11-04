@@ -8,26 +8,29 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Abel">
 </head>
 <body class="align">
-
-    <h1>Enter your INFORMATION</h1>
     
-  <div class="Container">
-    <div class="row">
-        <div class="col-md-6">
+  <div class="container">
+
 
     
     <form (ngSubmit)="onSubmit()">
-      <div class="form-group" >
-        <label for="name">Company Name :</label>
-      <input required  type="text" [(ngModel)]="E_name"  name="name" placeholder="Enter your company name" />
+      
+      <div class="form-row" >
+        
+        <div class="form-group">
+          <label for="name">Company Name :</label>
+          <input required  type="text" [(ngModel)]="E_name"  name="name" placeholder="Enter your company name" />
+        </div>
 
-
-      </div>
-
-      <div class="form-group">
+        <div class="form-group">
         <label for="EBE">Gross Operating Surplus:</label>
         <input type="number" id="EBE" [(ngModel)]="E_EBE"name="EBE" value=" " placeholder="Enter your gross operating surplus " />
       </div>
+      
+    </div>
+      
+    
+    <div class="form-row" >
       <div class="form-group">
         <label for="ET">Total Debt :</label>
         <input type="number" [(ngModel)]="E_ET" id="ET" name="ET" placeholder="Enter your total debt" />
@@ -37,7 +40,10 @@
         <label for="CP">Permanent Capitals :</label>
         <input type="number" [(ngModel)]="E_CP" id="CP" name="CP" placeholder=" Enter your permanent capitals" />
       </div>
+    </div>
+    
 
+    <div class="form-row" >
       <div class="form-group">
         <label for="TA">Total Assets : </label>
         <input type="number" id="TA" [(ngModel)]="E_TA" name="TA" placeholder="Enter your total assets" />
@@ -47,7 +53,9 @@
         <label for="RD">Realizable and Available :</label>
         <input type="number" id="RD" [(ngModel)]="E_RD" name="RD" placeholder="Enter your realizable and available" />
       </div>
-  
+    </div>
+
+  <div class="form-row" >
       <div class="form-group">
         <label for="FF">Financial Expenses :</label>
         <input type="number" id="FF" [(ngModel)]="E_FF" name="FF" placeholder="Enter your financial expenses" />
@@ -57,7 +65,9 @@
         <label for="CA">Turnover :</label>
         <input type="number" id="CA" [(ngModel)]="E_CA" name="CA" placeholder="Enter your turnover " />
       </div>
+    </div>
 
+    <div class="form-row" >
       <div class="form-group">
         <label for="FP">Personnel Costs :</label>
         <input type="number" id="FP" [(ngModel)]="E_FP" name="FP" placeholder="Enter your personnel costs" />
@@ -67,16 +77,15 @@
         <label for="VA">Added Value :</label>
         <input type="number" id="VA" [(ngModel)]="E_VA" name="VA" placeholder="Enter your added value" />
       </div>
-  
-      <div class="form-group">
-        
-      </div>
+    </div>
 
+      <div class="form-group">
       <button type="submit">Submit</button>
+      </div>
   
     </form>
 </div>
-</div>
+
 <svg version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 600 368">
     <defs>
       <mask id="chipMask">
@@ -152,7 +161,7 @@
       </g>
     </g>
 </svg>
-  </div>
+  
     
 </body>
 </html>
