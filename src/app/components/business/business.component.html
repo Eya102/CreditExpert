@@ -19,7 +19,7 @@
         
         <div class="form-group">
           <label for="name">Company Name :</label>
-          <input required  type="text" [(ngModel)]="E_name"  name="name" placeholder="Enter your company name" />
+          <input required  type="text" [(ngModel)]="E_name"  name="name" placeholder="company name" />
         </div>
 
         <div class="form-group">
@@ -161,6 +161,10 @@
       </g>
     </g>
 </svg>
+<div *ngIf="submitted" class="Result">
+  <a>{{result}}</a>
+</div>
+
   
     
 </body>

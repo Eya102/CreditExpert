@@ -1,5 +1,6 @@
 import { Component ,OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators , FormControl} from '@angular/forms';
+import { DataService } from '../services/data.service';
 import gsap from 'gsap';
 @Component({
   selector: 'app-personnel-loan',
@@ -14,13 +15,12 @@ export class  PersonnelLoanComponent implements OnInit {
   submitted = false;
   starShine: any;
   tl: any;
-  constructor(
+  result: any;
+  response!: string
+  constructor(private fb: FormBuilder,private myservice: DataService) {}
   
-    private fb: FormBuilder,
 
-  ) {
-
-  }
+  
   test:boolean=false;
   P_name:string ='';
   P_age:any=0;
@@ -37,15 +37,28 @@ export class  PersonnelLoanComponent implements OnInit {
     var val={
       
   age:this.P_age,
-  TypeContrat:  this.P_TypeContrat,
-  SalaireNet:  this.P_SalaireNet,
+  TC:  this.P_TypeContrat,
+  SN:  this.P_SalaireNet,
   ResteAVivre:  this.P_ResteAVivre,
-  TotalMensualites: this. P_TotalMensualites,
-  PretDemande:this.P_PretDemande,
-  PasDeFichageBanqueDeFrance:  this.P_PasDeFichageBanqueDeFrance
+  TM: this. P_TotalMensualites,
+  PrêtD:this.P_PretDemande,
+  PF:  this.P_PasDeFichageBanqueDeFrance
     }
+    console.log(val)
+
+  
+      this.myservice.postData(val).subscribe( (data) => {
+          this.result=data.response
+        }, error => {
+          console.error('Erreur lors de la requête :', error);
+        });
+    
+   
+    
+  
+  
           this.submitted=true;          
-  }
+}
   ngOnInit() {
     // Move the animation setup to ngOnInit instead of ngAfterViewInit
    

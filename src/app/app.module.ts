@@ -8,6 +8,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ServiceLandingPageComponent } from './components/service-landing-page/service-landing-page.component';
 import { PersonnelLoanComponent } from './components/personnel-loan/personnel-loan.component';
 import { BusinessComponent } from './components/business/business.component';
+import { DataService } from './components/services/data.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,15 +18,17 @@ import { BusinessComponent } from './components/business/business.component';
     NavbarComponent,
     ServiceLandingPageComponent,
     PersonnelLoanComponent,
-    BusinessComponent
+    BusinessComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [DataService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

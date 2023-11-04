@@ -41,9 +41,9 @@
       <div class="form-group">
         <label for="TypeContrat">The type of contract :</label>
         <select id="TypeContrat" [(ngModel)]="P_TypeContrat" name="TypeContrat"  required>
-          <option value="option1">Permanent Contract</option>
-          <option value="option2">Fixed-Term Contract</option>
-          <option value="option3">Public Service</option>
+          <option value="CDI">Permanent Contract</option>
+          <option value="CDD">Fixed-Term Contract</option>
+          <option value="Fonction Publique">Public Service</option>
           <!-- Add more options as needed -->
         </select>
 
@@ -51,8 +51,8 @@
    <div class="form-group">
         <label for="PasDeFichageBanqueDeFrance">No Bank of France Listing : </label>
         <select name="PasDeFichageBanqueDeFrance"  [(ngModel)]="P_PasDeFichageBanqueDeFrance" name="PasDeFichageBanqueDeFrance"  required>
-          <option value="option1">Yes</option>
-          <option value="option2">No</option>
+          <option value="oui">Yes</option>
+          <option value="non">No</option>
        
           <!-- Add more options as needed -->
         </select>
@@ -174,7 +174,7 @@
 
   
   <div *ngIf="submitted" class="Result">
-    <a>Result is here 2</a>
+    <a>{{result}}</a>
   </div>
 
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { DataService } from '../services/data.service';
 import gsap from 'gsap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -13,14 +14,13 @@ export class BusinessComponent {
   starShine: any;
   tl: any;
   add_e: FormGroup | any;
+  result: any;
   submitted = false;
+  response!:string
   
-  constructor(
-
-    private fb: FormBuilder,
-    //private http: HttpClient,
-  ) {}
-
+  constructor(private fb: FormBuilder, private myservice:DataService) {}
+  
+  test:boolean=false;
   E_name:string ='';
   E_EBE:any=0;
   E_ET:any=0;
@@ -28,7 +28,7 @@ export class BusinessComponent {
   E_TA:any=0;
   E_RD:any=0;
   E_FF:any=0;
-  E_CA:any=0;;
+  E_CA:any=0;
   E_FP:any=0;
   E_VA:any=0;
 
@@ -44,7 +44,15 @@ export class BusinessComponent {
       FP : this.E_FP,
       VA : this.E_VA
     }
-    console.log("values",val);
+    console.log(val)
+    this.myservice.postDataE(val).subscribe( (data) => {
+      this.result=data.response
+      console.log("values",data);
+    }, error => {
+      console.error('Erreur lors de la requête :', error);
+    });
+    this.submitted=true; 
+  
   }
 
   
@@ -72,7 +80,7 @@ export class BusinessComponent {
         end: 1
       }, duration:5, repeat:-1, ease:'none', repeatDelay:1}, 1.5)
     .from('.coil', {attr:{'stroke-dashoffset':(i)=>(i==1)?-28:28}, ease:'none', duration:1, repeat:-1}, 1)
-    .fromTo('#orb1', {y:160}, {y:-20, ease:'circ', repeat:-1, yoyo:true, duration:1}, 0.😎
+    .fromTo('#orb1', {y:160}, {y:-20, ease:'circ', repeat:-1, yoyo:true, duration:1}, 0.8)
     .from('.logoPt', {x:(i)=>[18,-10][i], duration:1.2, ease:'expo.inOut'}, 0.9)
     .from('svg text', {x:-40, duration:1.1, ease:'expo.inOut', stagger:0.2}, 1)
     .from('.txtBox', {scaleX:0, transformOrigin:'100% 0', duration:1.1, ease:'expo.inOut', stagger:0.2}, 1)

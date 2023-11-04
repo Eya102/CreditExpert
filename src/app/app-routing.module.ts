@@ -17,7 +17,8 @@ const routes: Routes = [
   },
   {
     path: 'business', component: BusinessComponent
-  }
+  },
+  { path: '', redirectTo: '/hero', pathMatch: 'full' }
 
 ];
 
