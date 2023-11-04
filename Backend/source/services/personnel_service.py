@@ -66,8 +66,8 @@ class LoanEvaluation(KnowledgeEngine):
 
     @Rule(Eligibility(ÉligibleAuCrédit=False))
     def acceptance(self):
-        print("loan refused")
+        print("Loan Denied")
 
     @Rule(Eligibility(ÉligibleAuCrédit=True))
     def refused(self):
-        print("loan accepted")
+        print("Loan Approved")

@@ -48,70 +48,70 @@ class LoanEvaluationE(KnowledgeEngine):
         LoanAcceptance(etat="Bonne liquidité"))
     def acceptation_rule_1(self):
         self.declare(LoanAcceptance(Decision="Accepté - Prêt accordé"))
-        print("Loan Accepted")
+        print("Loan Approved")
 
     @Rule(LoanAcceptance(etat="Situation financière saine"),
         LoanAcceptance(etat="Structure financière solide"),
         LoanAcceptance(etat="Charge financière raisonable"))
     def acceptation_rule_2(self):
         self.declare(LoanAcceptance(Decision="Accepté - Prêt accordé"))
-        print("Loan Accepted")
+        print("Loan Approved")
 
     @Rule(LoanAcceptance(etat="Situation financière saine"),
         LoanAcceptance(etat="Structure financière solide"),
         LoanAcceptance(etat="Charge salariale raisonable"))
     def acceptation_rule_3(self):
         self.declare(LoanAcceptance(Decision="Accepté - Prêt accordé"))
-        print("Loan Accepted")
+        print("Loan Approved")
 
     @Rule(LoanAcceptance(etat="Situation financière saine"),
         LoanAcceptance(etat="Bonne liquidité"),
         LoanAcceptance(etat="Charge financière raisonable"))
     def acceptation_rule_4(self):
         self.declare(LoanAcceptance(Decision="Accepté - Prêt accordé"))
-        print("Loan Accepted")
+        print("Loan Approved")
 
     @Rule(LoanAcceptance(etat="Situation financière saine"),
         LoanAcceptance(etat="Bonne liquidité"),
         LoanAcceptance(etat="Charge salariale raisonable"))
     def acceptation_rule_5(self):
         self.declare(LoanAcceptance(Decision="Accepté - Prêt accordé"))
-        print("Loan Accepted")
+        print("Loan Approved")
 
     @Rule(LoanAcceptance(etat="Situation financière saine"),
         LoanAcceptance(etat="Charge financière raisonable"),
         LoanAcceptance(etat="Charge salariale raisonable"))
     def acceptation_rule_6(self):
         self.declare(LoanAcceptance(Decision="Accepté - Prêt accordé"))
-        print("Loan Accepted")
+        print("Loan Approved")
 
     @Rule(LoanAcceptance(etat="Structure financière solide"),
         LoanAcceptance(etat="Bonne liquidité"),
         LoanAcceptance(etat="Charge financière raisonable"))
     def acceptation_rule_7(self):
         self.declare(LoanAcceptance(Decision="Accepté - Prêt accordé"))
-        print("Loan Accepted")
+        print("Loan Approved")
 
     @Rule(LoanAcceptance(etat="Structure financière solide"),
         LoanAcceptance(etat="Bonne liquidité"),
         LoanAcceptance(etat="Charge salariale raisonable"))
     def acceptation_rule_8(self):
         self.declare(LoanAcceptance(Decision="Accepté - Prêt accordé"))
-        print("Loan Accepted")
+        print("Loan Approved")
 
     @Rule(LoanAcceptance(etat="Structure financière solide"),
         LoanAcceptance(etat="Charge financière raisonable"),
         LoanAcceptance(etat="Charge salariale raisonable"))
     def acceptation_rule_9(self):
         self.declare(LoanAcceptance(Decision="Accepté - Prêt accordé"))
-        print("Loan Accepted")
+        print("Loan Approved")
 
     @Rule(LoanAcceptance(etat="Bonne liquidité"),
         LoanAcceptance(etat="Charge financière raisonable"),
         LoanAcceptance(etat="Charge salariale raisonable"))
     def acceptation_rule_10(self):
         self.declare(LoanAcceptance(Decision="Accepté - Prêt accordé"))
-        print("Loan Accepted")
+        print("Loan Approved")
 
     @Rule(LoanAcceptance(etat="Situation financière délicate"),
         LoanAcceptance(etat="Structure financière fragile"),

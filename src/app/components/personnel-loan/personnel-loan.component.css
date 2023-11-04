@@ -21,7 +21,7 @@ html, body {
         width:35%;
         max-height:40%;
         left:55%;
-        top:55%;
+        top:40%;
         transform:translateY(-50%);
        
         
@@ -43,6 +43,7 @@ html, body {
     display: flex;
     margin: 32px 0;
     justify-content: space-between;
+
   }
  input{
     width: 100%;
@@ -76,6 +77,7 @@ html, body {
    display: flex;
    flex-direction: column;
    margin: 0 150px;
+   height:840px;
   
   }
   
@@ -149,7 +151,7 @@ html, body {
         width:35%;
         max-height:40%;
         left:65%;
-        top:80%;
+        top:65%;
         font-size: 30px;
         color: white;
         text-shadow: 0 0 50px rgba(255, 255, 255, 0.5);

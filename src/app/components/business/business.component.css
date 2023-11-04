@@ -21,7 +21,7 @@ html, body {
       width:35%;
       max-height:40%;
       left:55%;
-      top:55%;
+      top:40%;
       transform:translateY(-50%);
      
       
@@ -150,7 +150,7 @@ html, body {
         width:35%;
         max-height:40%;
         left:65%;
-        top:80%;
+        top:65%;
         font-size: 30px;
         color: white;
         text-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
