@@ -8,15 +8,17 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './business.component.html',
   styleUrls: ['./business.component.css']
 })
+
 export class BusinessComponent {
   starShine: any;
   tl: any;
   add_e: FormGroup | any;
   submitted = false;
+  
   constructor(
 
     private fb: FormBuilder,
-    private http: HttpClient,
+    //private http: HttpClient,
   ) {}
 
   E_name:string ='';
@@ -42,19 +44,10 @@ export class BusinessComponent {
       FP : this.E_FP,
       VA : this.E_VA
     }
-
-    
-    const apiUrl = 'https://your-api-domain.com/your-api-endpoint';
-
-    this.http.post(apiUrl, val).subscribe(
-      (response) => {
-        console.log('API Response:', response);
-      },
-      (error) => {
-        console.error('Error:', error);
-      }
-    );
+    console.log("values",val);
   }
+
+  
 
   ngOnInit() {
     this.tl = gsap.timeline()
@@ -90,7 +83,5 @@ export class BusinessComponent {
     .set('#star', {scale:0, transformOrigin:'50% 50%', x:2, y:10})
     .to('#star', {scale:1, repeat:1, yoyo:true, yoyoEase:true, duration:0.4, ease:'power4'}, 0)
     .fromTo('#star', {rotate:-20},{rotate:120, duration:0.8, ease:'none'}, 0)
-  
-
   }
 }
