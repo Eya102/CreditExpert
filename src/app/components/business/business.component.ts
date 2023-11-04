@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Directive, ElementRef, HostListener, Input } from '@angular/core';
-
+import gsap from 'gsap';
 
 @Component({
   selector: 'app-business',
@@ -8,89 +7,44 @@ import { Directive, ElementRef, HostListener, Input } from '@angular/core';
   styleUrls: ['./business.component.css']
 })
 export class BusinessComponent {
-  @Input() questions:Array<{ question: string, answer: string }> = [];
-   activeQuestion: number = 0;
-   answering: boolean = true;
+  starShine: any;
+  tl: any;
 
-  constructor(private elementRef: ElementRef) {
-    this.questions = [
-      { question: "What's your name?", answer: "" },
-      { question: "How old are you?", answer: "" },
-      { question: "Where do you live?", answer: "" }
-    ];
+  ngAfterViewInit() {
+    this.tl = gsap.timeline()
+    .set('svg', {opacity:1})
+    .set('.scratches', {rotation:70, x:450, y:-10})
+    .set('#tri2', {scale:0.5})
+    .from('#cardMask rect', {scale:0, rotation:-20, duration:2, transformOrigin:'50% 50%', ease:'expo.inOut'}, 0)
+    .to('#tri1', {motionPath: {
+        path: "#midC",
+        align: "#midC",
+        alignOrigin: [0.5,0.5],
+        autoRotate: true,
+        start: 1,
+        end: 0
+      }, duration:6, repeat:-1, ease:'none', repeatDelay:1}, 0.5)
+    .to('#tri2', {motionPath: {
+        path: "#innerC",
+        align: "#innerC",
+        alignOrigin: [0.5,0.5],
+        autoRotate: true,
+        start: 0,
+        end: 1
+      }, duration:5, repeat:-1, ease:'none', repeatDelay:1}, 1.5)
+    .from('.coil', {attr:{'stroke-dashoffset':(i)=>(i==1)?-28:28}, ease:'none', duration:1, repeat:-1}, 1)
+    .fromTo('#orb1', {y:160}, {y:-20, ease:'circ', repeat:-1, yoyo:true, duration:1}, 0.8)
+    .from('.logoPt', {x:(i)=>[18,-10][i], duration:1.2, ease:'expo.inOut'}, 0.9)
+    .from('svg text', {x:-40, duration:1.1, ease:'expo.inOut', stagger:0.2}, 1)
+    .from('.txtBox', {scaleX:0, transformOrigin:'100% 0', duration:1.1, ease:'expo.inOut', stagger:0.2}, 1)
+    .fromTo('#wave1', {x:0, y:0},{duration:5, x:-701, y:815, repeat:-1, ease:'none'}, 0)
+    .fromTo('#wave2', {x:0, y:0},{duration:6, x:804, y:-917, repeat:-1, ease:'none', onRepeat:()=>this.starShine.play(0)}, 0)
 
-    this.open(0);
-
-    setTimeout(() => {
-      this.open(this.activeQuestion + 1);
-    }, 2000);
+    this.starShine = gsap.timeline()
+    .set('#star', {scale:0, transformOrigin:'50% 50%', x:2, y:10})
+    .to('#star', {scale:1, repeat:1, yoyo:true, yoyoEase:true, duration:0.4, ease:'power4'}, 0)
+    .fromTo('#star', {rotate:-20},{rotate:120, duration:0.8, ease:'none'}, 0)
+  
+  window.onclick =()=> this.tl.play(0);
   }
-
-   removeOpen() {
-    const questionElements = this.elementRef.nativeElement.querySelectorAll('.question');
-    questionElements.forEach((questionElement: Element) => {
-      questionElement.classList.remove('open');
-    });
-  }
-
-   scrollToAndFocus(element: Element, to: number, duration: number, focus: number) {
-    if (duration <= 10) {
-      this.setFocus(focus);
-      return;
-    }
-    const difference = to - element.scrollTop;
-    const perTick = difference / duration * 10;
-    setTimeout(() => {
-      element.scrollTop = element.scrollTop + perTick;
-      if (element.scrollTop === to) return;
-      this.scrollToAndFocus(element, to, duration - 10, focus);
-    }, 10);
-  }
-
-   setFocus(questionIndex: number) {
-    const questionId = 'q' + questionIndex;
-    const questionElement = this.elementRef.nativeElement.querySelector(`#${questionId}`);
-    if (questionElement) {
-      questionElement.focus();
-    }
-  }
-
-  @HostListener('keydown', ['$event'])
-   handleKeydown(event: KeyboardEvent) {
-    event.preventDefault();
-    switch (event.key) {
-      case 'ArrowLeft':
-        this.open(this.activeQuestion - 1);
-        break;
-      case 'ArrowRight':
-      case 'Enter':
-      case 'Tab':
-        this.open(this.activeQuestion + 1);
-        break;
-    }
-  }
-
-   open(order: number) {
-    this.removeOpen();
-    if (order >= this.questions.length || order < 0) {
-      this.answering = false;
-      this.elementRef.nativeElement.classList.remove('answering');
-      this.activeQuestion = this.questions.length + 1;
-    } else {
-      this.answering = true;
-      this.elementRef.nativeElement.classList.add('answering');
-      this.activeQuestion = order;
-      let offset = 0;
-      if (order !== 0) {
-        const questionElements = this.elementRef.nativeElement.querySelectorAll('.question');
-        offset = questionElements[order - 1].getBoundingClientRect().top;
-      }
-      this.scrollToAndFocus(this.elementRef.nativeElement, offset, 500, order);
-      const questionElement = this.elementRef.nativeElement.querySelector(`#q${order}`);
-      if (questionElement) {
-        questionElement.classList.add('open');
-      }
-    }
-  }
-
 }
